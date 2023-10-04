@@ -21,22 +21,26 @@ int main()
     ofstream out;
     in.open("applications.txt", ios::in);
     out.open("applications_outcome.txt", ios::out);
-    
+
     discard_line(in);
     visa_application data;
-    
+    string dummy;
+    int temp = 0;
     while (in) {
-        in >> data.set_visa_type;
-        in >> data.set_invoice_no;
-        in >> data.set_surname;
-        in >> data.set_first_name;
-        in >> data.set_contact;
-        in >> data.set_status;
-        in >> data.set_result;
+        in >> dummy;
+        data.set_visa_type(dummy);
+        in >> temp
+            data.set_invoice_no(temp);
+        in >>
+            data.set_surname();
+        in >> data.set_first_name();
+        in >> data.set_contact();
+        in >> data.set_status();
+        in >> data.set_result();
         myList.appendNode(&data);
-   
+
     }
-    
+
     in.close();
     out.close();
 
@@ -52,4 +56,3 @@ void discard_line(ifstream& in)
         in.get(c);
     while (c != '\n');
 }
-
