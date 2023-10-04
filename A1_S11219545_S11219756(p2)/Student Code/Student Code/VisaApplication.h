@@ -39,7 +39,19 @@ class visa_application : public data {
 void visa_application::set_visa_type(string visa_type) {
 	this->visa_type = visa_type;
 }
-
 string visa_application::get_visa_type() {
 	return this->visa_type;
+}
+
+void visa_application::set_invoice_no(int invoice_no) {
+	this->invoice_no = invoice_no;
+}
+int visa_application::get_invoice_no() {
+	return this->invoice_no = invoice_no;
+
+void visa_application::set_surname(string surname); {
+	this->surname = surname;
+}
+string visa_application::get_surname(){
+	return this->surname = surname;
 }
