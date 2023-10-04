@@ -48,7 +48,7 @@ void visa_application::set_invoice_no(int invoice_no) {
 }
 int visa_application::get_invoice_no() {
 	return this->invoice_no;
-
+}
 void visa_application::set_surname(string surname) {
 	this->surname = surname;
 }
