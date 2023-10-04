@@ -35,3 +35,11 @@ class visa_application : public data {
 
 
 };
+
+void visa_application::set_visa_type(string visa_type) {
+	this->visa_type = visa_type;
+}
+
+string visa_application::get_visa_type() {
+	return this->visa_type;
+}
