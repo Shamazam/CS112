@@ -47,11 +47,35 @@ void visa_application::set_invoice_no(int invoice_no) {
 	this->invoice_no = invoice_no;
 }
 int visa_application::get_invoice_no() {
-	return this->invoice_no = invoice_no;
+	return this->invoice_no;
 
-void visa_application::set_surname(string surname); {
+void visa_application::set_surname(string surname) {
 	this->surname = surname;
 }
 string visa_application::get_surname(){
-	return this->surname = surname;
+	return this->surname;
+}
+void visa_application::set_first_name(string first_name){
+	this->first_name = first_name;
+}
+string visa_application::get_first_name(){
+	return this->first_name;
+}
+void visa_application::set_contact(int contact){
+	this->contact = contact;
+}
+int visa_application::get_contact(){
+	return this-> contact;
+}
+void visa_application::set_status(string status){
+	this->status = status;
+}
+string visa_application::get_status(){
+	return this->status;
+}
+void visa_application::set_result(string result){
+	this->result = result;
+}
+string visa_application::get_result(){
+	return this-> result;
 }
