@@ -24,19 +24,24 @@ int main()
 
     discard_line(in);
     visa_application data;
-    string dummy;
-    int temp = 0;
+    string temp_string;
+    int temp_int = 0;
     while (in) {
-        in >> dummy;
-        data.set_visa_type(dummy);
-        in >> temp
-            data.set_invoice_no(temp);
-        in >>
-            data.set_surname();
-        in >> data.set_first_name();
-        in >> data.set_contact();
-        in >> data.set_status();
-        in >> data.set_result();
+        in >> temp_string;
+        data.set_visa_type(temp_string);
+        in >> temp_int;
+        data.set_invoice_no(temp_int);
+        in >>temp_string;
+        data.set_surname(temp_string);
+        in >> temp_string;
+        data.set_first_name(temp_string);
+        in >> temp_int;
+        data.set_contact(temp_int);
+        in >> temp_string;
+        data.set_status(temp_string);
+        in >> temp_string;
+        data.set_result(temp_string);
+        
         myList.appendNode(&data);
 
     }
