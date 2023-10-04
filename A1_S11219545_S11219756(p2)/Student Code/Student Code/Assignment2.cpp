@@ -21,9 +21,22 @@ int main()
     ofstream out;
     in.open("applications.txt", ios::in);
     out.open("applications_outcome.txt", ios::out);
-
-    //TODO...
-
+    
+    discard_line(in);
+    visa_application data;
+    
+    while (in) {
+        in >> data.set_visa_type;
+        in >> data.set_invoice_no;
+        in >> data.set_surname;
+        in >> data.set_first_name;
+        in >> data.set_contact;
+        in >> data.set_status;
+        in >> data.set_result;
+        myList.appendNode(&data);
+   
+    }
+    
     in.close();
     out.close();
 
