@@ -31,7 +31,7 @@ int main()
         data.set_visa_type(temp_string);
         in >> temp_int;
         data.set_invoice_no(temp_int);
-        in >>temp_string;
+        in >> temp_string;
         data.set_surname(temp_string);
         in >> temp_string;
         data.set_first_name(temp_string);
@@ -41,8 +41,8 @@ int main()
         data.set_status(temp_string);
         in >> temp_string;
         data.set_result(temp_string);
-        
-        myList.appendNode(&data);
+
+        //myList.appendNode(&data);
 
     }
 
