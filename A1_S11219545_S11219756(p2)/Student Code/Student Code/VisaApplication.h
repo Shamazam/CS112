@@ -19,7 +19,9 @@ class visa_application : public Data {
 			invoice_no = 0;
 			contact = 0;
 		}
-		~visa_application() {};
+		~visa_application() {
+			
+		};
 		void set_visa_type(string visa_type);
 		string get_visa_type();
 		void set_invoice_no(int invoice_no);
@@ -34,8 +36,6 @@ class visa_application : public Data {
 		string get_status();
 		void set_result(string result);
 		string get_result();
-
-
 		void print();
 
 

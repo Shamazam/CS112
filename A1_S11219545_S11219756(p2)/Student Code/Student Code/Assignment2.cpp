@@ -11,10 +11,10 @@
 using namespace std;
 
 void discard_line(ifstream& in);
-void print(List* myList);
-void Print_success_list(List *myList);
-void print_failure_list(List* myList);
-void remove_success_failure(List* myList);
+void print(List myList, ofstream& out, visa_application *data);
+void Print_success_list(List myList);
+void print_failure_list(List myList);
+void remove_success_failure(List myList);
 
 
 int main()
@@ -31,6 +31,7 @@ int main()
     string temp_string;
     int temp_int = 0;
 
+   
     
 
     while (in) {
@@ -50,10 +51,12 @@ int main()
         data->set_result(temp_string);
        
         myList.appendNode(data);
+        
         data = new visa_application;
     }
-
-    print(&myList);
+    Node* dummy = myList.getpTail();
+    myList.removeNode(dummy);
+    print(myList,out, data);
     
 
 
@@ -73,19 +76,29 @@ void discard_line(ifstream& in)
     while (c != '\n');
 }
 
-void print(List* myList) {
+void print(List myList, ofstream& out, visa_application* data) {
     cout << "Visa Type" << "        " << "InvoiceNO" << "       " << "Surname" << "     " << "First Name" << "      " << "Contact" << "         " << "Status" << "         " << "Result" << endl;
-    myList->printList();
+    cout << "-------------------------------------------------------------------------------------------------------------" << endl;
+    myList.printList();
+
+    out << "Visa Type" << "        " << "InvoiceNO" << "       " << "Surname" << "     " << "First Name" << "      " << "Contact" << "         " << "Status" << "         " << "Result" << endl;
+    out << "-------------------------------------------------------------------------------------------------------------" << endl;
+   
+    Node* temp = myList.getpHead();
+    while (temp  != NULL) {
+        
+        out << data->get_visa_type()<<"     " <<data->get_invoice_no()<<"       "<<data->get_surname()<<"       " <<data->get_first_name()<<"       "<<data->get_contact()<<"       "<<data->get_status()<<"        "<<data->get_result()  << endl;
+        temp = myList.nextNode(temp);
+    }
+}
+void Print_success_list(List myList) {
+
 }
 
-void Print_success_list(List* myList) {
+void print_failure_list(List myList) {
 
 }
 
-void print_failure_list(List* myList) {
-
-}
-
-void remove_success_failure(List* myList) {
+void remove_success_failure(List myList) {
 
 }
