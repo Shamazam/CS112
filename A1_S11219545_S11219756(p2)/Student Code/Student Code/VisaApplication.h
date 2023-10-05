@@ -4,7 +4,7 @@
 #include "Data.h"
 using namespace std;
 
-class visa_application : public data {
+class visa_application : public Data {
 
 	private:
 		string visa_type;
@@ -78,4 +78,7 @@ void visa_application::set_result(string result){
 }
 string visa_application::get_result(){
 	return this-> result;
+}
+void visa_application::print() {
+	//add
 }

@@ -42,9 +42,11 @@ int main()
         in >> temp_string;
         data.set_result(temp_string);
 
-        //myList.appendNode(&data);
+        myList.appendNode(&data);
 
     }
+
+
 
     in.close();
     out.close();
