@@ -15,6 +15,11 @@ class visa_application : public Data {
 		string status;
 		string result;
 	public:
+		visa_application() {
+			invoice_no = 0;
+			contact = 0;
+		}
+		~visa_application() {};
 		void set_visa_type(string visa_type);
 		string get_visa_type();
 		void set_invoice_no(int invoice_no);
@@ -80,5 +85,5 @@ string visa_application::get_result(){
 	return this-> result;
 }
 void visa_application::print() {
-	//add
+	cout << visa_type << "		" << invoice_no << "		" << surname << "		" << first_name << "		" << contact << "		" << status << "		" << result << endl;
 }

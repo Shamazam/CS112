@@ -11,6 +11,10 @@
 using namespace std;
 
 void discard_line(ifstream& in);
+void print(List* myList);
+void Print_success_list(List *myList);
+void print_failure_list(List* myList);
+void remove_success_failure(List* myList);
 
 
 int main()
@@ -23,29 +27,34 @@ int main()
     out.open("applications_outcome.txt", ios::out);
 
     discard_line(in);
-    visa_application data;
+    visa_application *data = new visa_application;
     string temp_string;
     int temp_int = 0;
+
+    
+
     while (in) {
         in >> temp_string;
-        data.set_visa_type(temp_string);
+        data->set_visa_type(temp_string);
         in >> temp_int;
-        data.set_invoice_no(temp_int);
+        data->set_invoice_no(temp_int);
         in >> temp_string;
-        data.set_surname(temp_string);
+        data->set_surname(temp_string);
         in >> temp_string;
-        data.set_first_name(temp_string);
+        data->set_first_name(temp_string);
         in >> temp_int;
-        data.set_contact(temp_int);
+        data->set_contact(temp_int);
         in >> temp_string;
-        data.set_status(temp_string);
+        data->set_status(temp_string);
         in >> temp_string;
-        data.set_result(temp_string);
-
-        myList.appendNode(&data);
-
+        data->set_result(temp_string);
+       
+        myList.appendNode(data);
+        data = new visa_application;
     }
 
+    print(&myList);
+    
 
 
     in.close();
@@ -62,4 +71,21 @@ void discard_line(ifstream& in)
     do
         in.get(c);
     while (c != '\n');
+}
+
+void print(List* myList) {
+    cout << "Visa Type" << "        " << "InvoiceNO" << "       " << "Surname" << "     " << "First Name" << "      " << "Contact" << "         " << "Status" << "         " << "Result" << endl;
+    myList->printList();
+}
+
+void Print_success_list(List* myList) {
+
+}
+
+void print_failure_list(List* myList) {
+
+}
+
+void remove_success_failure(List* myList) {
+
 }
