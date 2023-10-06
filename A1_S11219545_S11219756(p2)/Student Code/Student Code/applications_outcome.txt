@@ -1,11 +1,10 @@
 Visa Type        InvoiceNO       Surname     First Name      Contact         Status         Result
 -------------------------------------------------------------------------------------------------------------
-     0                     0               
-     0                     0               
-     0                     0               
-     0                     0               
-     0                     0               
-     0                     0               
-     0                     0               
-     0                     0               
-     0                     0               
+NODecision     3387711       NODecision       NODecision       3387711       NODecision        NODecision
+NODecision     3387711       NODecision       NODecision       3387711       NODecision        NODecision
+NODecision     3387711       NODecision       NODecision       3387711       NODecision        NODecision
+NODecision     3387711       NODecision       NODecision       3387711       NODecision        NODecision
+NODecision     3387711       NODecision       NODecision       3387711       NODecision        NODecision
+NODecision     3387711       NODecision       NODecision       3387711       NODecision        NODecision
+NODecision     3387711       NODecision       NODecision       3387711       NODecision        NODecision
+NODecision     3387711       NODecision       NODecision       3387711       NODecision        NODecision
