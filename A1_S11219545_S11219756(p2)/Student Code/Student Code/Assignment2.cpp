@@ -11,7 +11,7 @@
 using namespace std;
 
 void discard_line(ifstream& in);
-void print(List *myList, ofstream& out, visa_application *data);
+void print(List *myList, visa_application *data);
 void Print_success_list(List *myList, visa_application* data);
 void print_failure_list(List myList, visa_application* data);
 void remove_success_failure(List myList, visa_application* data);
@@ -60,8 +60,9 @@ int main()
     /*Node* lastNode = myList.getpTail();
     myList.removeNode(lastNode);*/
     
-    
-    print(&myList,out, data);
+    //for(int i = 0;i<8;i++)cout << data->get_visa_type() << "     " << data->get_invoice_no() << "       " << data->get_surname() << "       " << data->get_first_name() << "       " << data->get_contact() << "       " << data->get_status() << "        " << data->get_result() << endl;
+
+    //print(&myList, data);
     
     //Print_success_list(&myList, data);
 
@@ -81,21 +82,11 @@ void discard_line(ifstream& in)
     while (c != '\n');
 }
 
-void print(List *myList, ofstream& out, visa_application* data) {
+void print(List *myList, visa_application* data) {
     cout << "Visa Type" << "        " << "InvoiceNO" << "       " << "Surname" << "     " << "First Name" << "      " << "Contact" << "         " << "Status" << "         " << "Result" << endl;
     cout << "-------------------------------------------------------------------------------------------------------------" << endl;
     myList->printList();
 
-    out << "Visa Type" << "        " << "InvoiceNO" << "       " << "Surname" << "     " << "First Name" << "      " << "Contact" << "         " << "Status" << "         " << "Result" << endl;
-    out << "-------------------------------------------------------------------------------------------------------------" << endl;
-   
-    Node* temp = myList->getpHead();
-    data == (Data*)temp->getData();
-    while (temp  != NULL) {
-         
-        out << data->get_visa_type()<<"     " <<data->get_invoice_no()<<"       "<<data->get_surname()<<"       " <<data->get_first_name()<<"       "<<data->get_contact()<<"       "<<data->get_status()<<"        "<<data->get_result()  << endl;
-        temp = myList->nextNode(temp);
-    }
 }
 void Print_success_list(List *myList, visa_application* data) {
     cout << "Visa Type" << "        " << "InvoiceNO" << "       " << "Surname" << "     " << "First Name" << "      " << "Contact" << "         " << "Status" << "         " << "Result" << endl;
