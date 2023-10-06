@@ -62,7 +62,9 @@ int main()
     //print(&myList, data);
     //Print_success_list(&myList, data);
     //print_failure_list(&myList, data);
-    //remove_success_failure(&myList, data);
+    remove_success_failure(&myList, data);
+
+
     in.close();
     out.close();
 
@@ -123,12 +125,15 @@ void remove_success_failure(List *myList, visa_application* data) {
     cout << "Visa Type" << "        " << "InvoiceNO" << "       " << "Surname" << "     " << "First Name" << "      " << "Contact" << "         " << "Status" << "         " << "Result" << endl;
     cout << "-------------------------------------------------------------------------------------------------------------" << endl;
 
+    Node *temp = myList->getpHead();
+    Node* temp2 = temp;
     for (Node* temp = myList->getpHead(); temp != NULL; temp = myList->nextNode(temp)) {
         Data* d;
         d = temp->getData();
         data = (visa_application*)d;
         if (data->get_result() == "failure" || data->get_result() == "success") {
             myList->removeNode(temp);
+            temp = temp2;
         }
           
     }
