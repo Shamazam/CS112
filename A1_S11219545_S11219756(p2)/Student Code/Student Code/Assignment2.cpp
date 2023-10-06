@@ -7,14 +7,15 @@
 #include <fstream>
 #include "List.h"
 #include "VisaApplication.h"
+#include <iomanip>
 
 using namespace std;
 
 void discard_line(ifstream& in);
 void print(List *myList, visa_application *data);
 void Print_success_list(List *myList, visa_application* data);
-void print_failure_list(List myList, visa_application* data);
-void remove_success_failure(List myList, visa_application* data);
+void print_failure_list(List *myList, visa_application* data);
+void remove_success_failure(List *myList, visa_application* data);
 
 
 int main()
@@ -30,11 +31,11 @@ int main()
     visa_application *data = new visa_application;
     string temp_string;
     int temp_int = 0;
-
-
+    
+    
 
     while (true) {
-
+       
         in >> temp_string;
         data->set_visa_type(temp_string);
         in >> temp_int;
@@ -50,22 +51,18 @@ int main()
         in >> temp_string;
         data->set_result(temp_string);
         if (in.eof()) break;
-        //cout << data->get_visa_type() << "     " << data->get_invoice_no() << "       " << data->get_surname() << "       " << data->get_first_name() << "       " << data->get_contact() << "       " << data->get_status() << "        " << data->get_result() << endl;
         
         myList.appendNode(data);
+        
         data = new visa_application;
         
     }
-
-    /*Node* lastNode = myList.getpTail();
-    myList.removeNode(lastNode);*/
-    
-    //for(int i = 0;i<8;i++)cout << data->get_visa_type() << "     " << data->get_invoice_no() << "       " << data->get_surname() << "       " << data->get_first_name() << "       " << data->get_contact() << "       " << data->get_status() << "        " << data->get_result() << endl;
-
+   
+  
     //print(&myList, data);
-    
     //Print_success_list(&myList, data);
-
+    //print_failure_list(&myList, data);
+    //remove_success_failure(&myList, data);
     in.close();
     out.close();
 
@@ -88,42 +85,53 @@ void print(List *myList, visa_application* data) {
     myList->printList();
 
 }
+
 void Print_success_list(List *myList, visa_application* data) {
     cout << "Visa Type" << "        " << "InvoiceNO" << "       " << "Surname" << "     " << "First Name" << "      " << "Contact" << "         " << "Status" << "         " << "Result" << endl;
     cout << "-------------------------------------------------------------------------------------------------------------" << endl;
 
-    Node* temp = myList->getpHead();
-    while (temp != NULL) {
-        if (data->get_status() == "success") {
-            temp->getData()->print();
-        }
-        temp = myList->nextNode(temp);
+    
+    
+    for (Node* temp = myList->getpHead(); temp != NULL; temp = myList->nextNode(temp)) {
+        Data* d;
+        d = temp->getData();
+        data = (visa_application*)d;
+        if (data->get_result() == "success")
+             data->print();
+        
+        
     }
 
 }
 
-void print_failure_list(List myList, visa_application* data) {
+void print_failure_list(List *myList, visa_application* data) {
     cout << "Visa Type" << "        " << "InvoiceNO" << "       " << "Surname" << "     " << "First Name" << "      " << "Contact" << "         " << "Status" << "         " << "Result" << endl;
     cout << "-------------------------------------------------------------------------------------------------------------" << endl;
 
-    Node* temp = myList.getpHead();
-    while (temp != NULL) {
-        if (data->get_status() == "failure") {
+    for (Node* temp = myList->getpHead(); temp != NULL; temp = myList->nextNode(temp)) {
+        Data* d;
+        d = temp->getData();
+        data = (visa_application*)d;
+        if (data->get_result() == "failure")
             data->print();
-        }
-        temp = myList.nextNode(temp);
+
+
     }
 }
 
-void remove_success_failure(List myList, visa_application* data) {
+void remove_success_failure(List *myList, visa_application* data) {
     cout << "Visa Type" << "        " << "InvoiceNO" << "       " << "Surname" << "     " << "First Name" << "      " << "Contact" << "         " << "Status" << "         " << "Result" << endl;
     cout << "-------------------------------------------------------------------------------------------------------------" << endl;
 
-    Node* temp = myList.getpHead();
-    while (temp != NULL) {
-        if (data->get_status() == "failure" || data->get_status() == "success") {
-            myList.removeNode(temp);
+    for (Node* temp = myList->getpHead(); temp != NULL; temp = myList->nextNode(temp)) {
+        Data* d;
+        d = temp->getData();
+        data = (visa_application*)d;
+        if (data->get_result() == "failure" || data->get_result() == "success") {
+            myList->removeNode(temp);
         }
-        temp = myList.nextNode(temp);
+          
     }
+
+    myList->printList();
 }
