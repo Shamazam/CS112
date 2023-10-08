@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include "Data.h"
+#include <iomanip>
 using namespace std;
 
 class visa_application : public Data {
@@ -85,5 +86,8 @@ string visa_application::get_result(){
 	return this-> result;
 }
 void visa_application::print() {
-	cout << visa_type << "		" << invoice_no << "		" << surname << "		" << first_name << "		" << contact << "		" << status << "		" << result << endl;
+	const int WIDTH_SIZE = 15;
+	const string TAB_SIZE = "		";
+	//cout << visa_type << TAB_SIZE << invoice_no << TAB_SIZE << surname << TAB_SIZE << first_name << TAB_SIZE << contact << TAB_SIZE << status << TAB_SIZE << result << endl;
+	cout << visa_type << setw(WIDTH_SIZE) << invoice_no << setw(WIDTH_SIZE) << surname << setw(WIDTH_SIZE) << first_name << setw(WIDTH_SIZE) << contact << setw(WIDTH_SIZE) << status << setw(WIDTH_SIZE) << result << endl;
 }
