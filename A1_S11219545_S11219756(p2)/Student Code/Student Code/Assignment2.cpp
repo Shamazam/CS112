@@ -60,15 +60,36 @@ int main()
     }
    
   
-    print(&myList, visa_info);
-    cout << endl;
-    Print_success_list(&myList, visa_info);
-    cout << endl;
-    print_failure_list(&myList, visa_info);
-    cout << endl;
-    remove_success_failure(&myList, visa_info);
-    cout << endl;
+do {
+    cout << "***Visa Application Process Menu***" << endl << endl;
+    cout << "1. Print all the information for every visa applicant" << endl;
+    cout << "2. Print all successful visa applications" << endl;
+    cout << "3. Print all unsuccessful visa applications" << endl;
+    cout << "4. Remove all successful and unsuccesful visa applications from the list" << endl << endl;
+    cout << "Please select an option by entering its corresponding number and enter '0' to exit" << endl;
+    cin >> choice;
 
+    if (choice == 1) {
+        print(&myList, visa_info);
+        cout << endl;
+    }
+    else if (choice == 2) {
+        Print_success_list(&myList, visa_info);
+        cout << endl;
+    }
+    else if (choice == 3) {
+        print_failure_list(&myList, visa_info);
+        cout << endl;
+    }
+    else if (choice == 4) {
+        remove_success_failure(&myList, visa_info);
+        cout << endl;
+    }
+    else if (choice != 0){
+        cout << "Invalid input. Please try entering a valid number to proceed with the program or to exit" << endl;
+        cin >> choice;
+    }
+} while (choice != 0);
 
     in.close();
     out.close();
